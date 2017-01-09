@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace FastReflectionLib
 {
@@ -66,6 +64,6 @@ namespace FastReflectionLib
             return this.Invoke(parameters);
         }
 
-        #endregion
+        #endregion IConstructorInvoker Members
     }
 }

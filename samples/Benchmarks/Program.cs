@@ -1,24 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 
 namespace FastReflectionLib.Samples.Benchmarks
 {
     public class Test
     {
-        public Test() { }
+        public Test()
+        {
+        }
 
-        public Test(int i) { }
+        public Test(int i)
+        {
+        }
 
         public object ObjectProperty { get; set; }
 
         public int Int32Property { get; set; }
 
-        public void MethodWithoutArgs() { }
+        public void MethodWithoutArgs()
+        {
+        }
 
-        public void MethodWithArgs(int a1, string a2) { }
+        public void MethodWithArgs(int a1, string a2)
+        {
+        }
     }
 
     public class TestResult
@@ -34,9 +39,9 @@ namespace FastReflectionLib.Samples.Benchmarks
         public TimeSpan RawFastReflection { get; set; }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             int times = 1000000;
             Array.ForEach(new TestResult[]
@@ -60,7 +65,7 @@ namespace FastReflectionLib.Samples.Benchmarks
             Console.ReadKey();
         }
 
-        static TestResult TestObjectPropertyGet(int times)
+        private static TestResult TestObjectPropertyGet(int times)
         {
             var obj = new Test();
             var propertyInfo = obj.GetType().GetProperty("ObjectProperty");
@@ -74,7 +79,7 @@ namespace FastReflectionLib.Samples.Benchmarks
 
             // Direct
             watch.Start();
-            for (int i = 0; i < times; i++) 
+            for (int i = 0; i < times; i++)
             {
                 var value = obj.ObjectProperty;
             }
@@ -115,7 +120,7 @@ namespace FastReflectionLib.Samples.Benchmarks
             return result;
         }
 
-        static TestResult TestInt32PropertyGet(int times)
+        private static TestResult TestInt32PropertyGet(int times)
         {
             var obj = new Test();
             var propertyInfo = obj.GetType().GetProperty("Int32Property");
@@ -170,7 +175,7 @@ namespace FastReflectionLib.Samples.Benchmarks
             return result;
         }
 
-        static TestResult TestMethodWithoutArgs(int times)
+        private static TestResult TestMethodWithoutArgs(int times)
         {
             var obj = new Test();
             var methodInfo = obj.GetType().GetMethod("MethodWithoutArgs");
@@ -225,7 +230,7 @@ namespace FastReflectionLib.Samples.Benchmarks
             return result;
         }
 
-        static TestResult TestMethodWithArgs(int times)
+        private static TestResult TestMethodWithArgs(int times)
         {
             var obj = new Test();
             var methodInfo = obj.GetType().GetMethod("MethodWithArgs");

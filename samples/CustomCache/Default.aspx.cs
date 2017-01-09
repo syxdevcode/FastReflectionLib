@@ -1,16 +1,14 @@
-﻿using System;
+﻿using FastReflectionLib;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using FastReflectionLib;
 
 namespace CustomCache
 {
     public class PropertyAccessorCache
     {
         private object m_mutex = new object();
+
         private Dictionary<Type, Dictionary<string, IPropertyAccessor>> m_cache =
             new Dictionary<Type, Dictionary<string, IPropertyAccessor>>();
 

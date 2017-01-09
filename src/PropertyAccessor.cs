@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -91,6 +88,6 @@ namespace FastReflectionLib
             this.SetValue(instance, value);
         }
 
-        #endregion
+        #endregion IPropertyAccessor Members
     }
 }
